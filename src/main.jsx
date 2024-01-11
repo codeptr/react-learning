@@ -13,6 +13,7 @@ import Root,
 import ErrorPage from './routes/error-page'
 import Contact, { loader as contactLoader } from './routes/contact'
 import EditContact, { action as editAction } from './routes/edit'
+import { action as destroyAction } from './routes/destroy'
 
 const router = new createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = new createBrowserRouter([
         element: <EditContact />,
         loader: contactLoader,
         action: editAction,
+      },
+      {
+        path: "contacts/:contactId/destroy",
+        action: destroyAction,
       }
     ]
   },
